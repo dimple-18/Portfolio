@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* background glow */}
       <div className="absolute inset-0">
         <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -17,42 +19,43 @@ export default function Hero() {
             </p>
 
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-              Building modern, fast & <span className="text-white">professional</span>{" "}
-              web experiences.
+              Building modern, fast &{" "}
+              <span className="text-white">professional</span> web experiences.
             </h1>
 
             <p className="mt-5 text-white/75 max-w-xl">
-              I create clean UI, smooth navigation, and real-world features.
-              Let’s make your website look premium and convert better.
+              I build responsive websites and web apps with clean UI and
+              real-world features — designed to look premium and perform well.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="inline-flex items-center gap-2 rounded-full bg-white text-[#062a2c] px-5 py-3 text-sm font-semibold hover:opacity-90"
               >
-                View Projects →
-              </a>
-              <a
-                href="#contact"
+                Explore →
+              </Link>
+
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 Book a Call
-              </a>
+              </Link>
             </div>
 
             {/* small badge cards */}
             <div className="mt-10 grid gap-3 sm:grid-cols-2 max-w-xl">
               <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
-                <p className="text-sm font-semibold">⭐ 4.9/5 Reviews</p>
+                <p className="text-sm font-semibold">⭐ Quality-first builds</p>
                 <p className="text-xs text-white/60 mt-1">
-                  Quality + timely delivery focus
+                  Clean code + reliable delivery
                 </p>
               </div>
               <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
-                <p className="text-sm font-semibold">⚡ Smooth Navigation</p>
+                <p className="text-sm font-semibold">⚡ Performance focused</p>
                 <p className="text-xs text-white/60 mt-1">
-                  Single-page scroll experience
+                  Fast, responsive experience
                 </p>
               </div>
             </div>
@@ -71,7 +74,7 @@ export default function Hero() {
               <div className="absolute bottom-6 left-6 rounded-2xl bg-black/35 border border-white/10 px-4 py-3 backdrop-blur">
                 <p className="text-sm font-semibold">Available for freelance</p>
                 <p className="text-xs text-white/70 mt-1">
-                  React • Tailwind • API Integration
+                  React • Tailwind • API Integrations
                 </p>
               </div>
             </div>

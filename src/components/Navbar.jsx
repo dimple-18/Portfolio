@@ -1,101 +1,76 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
-const links = [
-  { label: "Home", id: "home" },
-  { label: "About", id: "about" },
-  { label: "Services", id: "services" },
-  { label: "Projects", id: "projects" },
-  { label: "Contact", id: "contact" },
-];
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const go = (id) => {
-    setOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
+// 🏠 HOME PAGE (hero + sections)
+function HomePage() {
   return (
-    <header className="sticky top-0 z-50">
-      <div
-        className={[
-          "mx-auto max-w-7xl px-4 sm:px-6",
-          scrolled ? "pt-3" : "pt-4",
-        ].join(" ")}
-      >
-        <div
-          className={[
-            "rounded-full border border-white/10",
-            "bg-white/5 backdrop-blur-xl",
-            scrolled ? "shadow-lg shadow-black/20" : "",
-          ].join(" ")}
-        >
-          <div className="flex items-center justify-between px-5 py-3">
-            <button
-              onClick={() => go("home")}
-              className="flex items-center gap-2 font-semibold tracking-wide"
-            >
-              <span className="h-8 w-8 rounded-full bg-white/10 grid place-items-center">
-                DK
-              </span>
-              <span className="hidden sm:block">Dimple Kumari</span>
-            </button>
+    <>
+      <Hero />
 
-            <nav className="hidden md:flex items-center gap-7 text-sm text-white/80">
-              {links.map((l) => (
-                <button
-                  key={l.id}
-                  onClick={() => go(l.id)}
-                  className="hover:text-white transition"
-                >
-                  {l.label}
-                </button>
-              ))}
-            </nav>
+      <section className="bg-white text-slate-900">
+        <About />
+      </section>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => go("contact")}
-                className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-[#062a2c] px-4 py-2 text-sm font-semibold hover:opacity-90"
-              >
-                Contact
-              </button>
+      <section className="bg-[#F5F7FA] text-slate-900">
+        <Services />
+      </section>
 
-              <button
-                className="md:hidden rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm"
-                onClick={() => setOpen((v) => !v)}
-              >
-                Menu
-              </button>
-            </div>
-          </div>
+      <section className="bg-emerald-50/40 text-slate-900">
+        <Projects />
+      </section>
 
-          {open && (
-            <div className="md:hidden px-5 pb-4">
-              <div className="grid gap-2 rounded-2xl border border-white/10 bg-black/10 p-3">
-                {links.map((l) => (
-                  <button
-                    key={l.id}
-                    onClick={() => go(l.id)}
-                    className="rounded-xl px-3 py-2 text-left text-white/85 hover:bg-white/10"
-                  >
-                    {l.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+      <section className="bg-[#071A1F] text-white">
+        <Footer />
+      </section>
+    </>
+  );
+}
+
+// 📄 INDIVIDUAL PAGES
+const AboutPage = () => (
+  <section className="bg-white text-slate-900 min-h-screen">
+    <About />
+  </section>
+);
+
+const ServicesPage = () => (
+  <section className="bg-[#F5F7FA] text-slate-900 min-h-screen">
+    <Services />
+  </section>
+);
+
+const ProjectsPage = () => (
+  <section className="bg-emerald-50/40 text-slate-900 min-h-screen">
+    <Projects />
+  </section>
+);
+
+const ContactPage = () => (
+  <section className="bg-[#071A1F] text-white min-h-screen">
+    <Footer />
+  </section>
+);
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-[#071A1F] text-white">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </div>
-    </header>
+    </BrowserRouter>
   );
 }

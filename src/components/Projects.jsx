@@ -43,12 +43,12 @@ export default function Projects() {
 
           {/* RIGHT content */}
           <div>
-            <p className="text-sm font-semibold text-slate-500">✦ Projects</p>
+            <p className="text-sm font-semibold text-slate-500 text-emerald-700">✦ Projects</p>
             <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
               Featured <span className="text-emerald-600">Work</span>
             </h2>
             <p className="mt-3 max-w-xl text-slate-600">
-              A few project highlights that reflect what I build — SaaS apps, dashboards,
+              A few project highlights that reflect what I build like SaaS apps, dashboards,
               backend APIs, and integrations.
             </p>
 
@@ -105,7 +105,7 @@ export default function Projects() {
                 href="#"
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
               >
-                <FaExternalLinkAlt /> Live Demos
+                <FaExternalLinkAlt /> Explore 
               </a>
             </div>
           </div>

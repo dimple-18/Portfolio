@@ -28,10 +28,9 @@ export default function About() {
           </h2>
 
           <p className="mt-4 max-w-xl text-slate-600">
-            I’m a React developer focused on building clean UI, smooth
-            single-page experiences, and responsive websites. I love converting
-            Figma designs into pixel-perfect components and writing scalable,
-            reusable code.
+            I’m a React developer passionate about building modern multi-page and 
+            single-page applications with clean UI, smooth navigation, 
+            and a strong focus on performance, scalability, and code quality.
           </p>
 
           <div className="mt-6">
@@ -52,7 +51,7 @@ export default function About() {
               icon="🪪"
               title="Role"
               value="React Developer"
-              sub="Frontend • UI • SPA"
+              sub="UI • Web Apps • Dashboards"
             />
             <InfoCard
               icon="📍"

@@ -48,12 +48,12 @@ export default function Services() {
   return (
     <section id="services" className="mx-auto max-w-7xl px-6 py-16 md:px-10">
       <div className="mb-10">
-        <p className="text-sm font-semibold text-slate-500">+ Service</p>
+        <p className="text-sm font-semibold text-emerald-700">✦ Service</p>
         <h2 className="mt-2 text-4xl font-extrabold tracking-tight">
           Services <span className="text-emerald-600">Offered</span>
         </h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Professional web services tailored to your needs — clean UI, smooth UX, and fast delivery.
+          Modern web solutions with clean UI, smooth user experiences, and reliable, on-time delivery.
         </p>
       </div>
 
