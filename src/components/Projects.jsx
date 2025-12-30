@@ -66,7 +66,7 @@ export default function Projects() {
               </a>
 
               <a
-                href="https://github.com/"
+                href="https://github.com/dimple-18"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
