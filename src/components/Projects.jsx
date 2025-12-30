@@ -28,24 +28,64 @@ export default function Projects() {
   return (
     <section id="projects" className="bg-emerald-50/40">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        {/* ✅ Content LEFT, Image RIGHT */}
+
+        {/* HEADING */}
+        <div className="mb-12">
+          <p className="text-sm font-semibold text-emerald-700">✦ Projects</p>
+          <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
+            Featured <span className="text-emerald-600">Work</span>
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            A few project highlights that reflect what I build: SaaS apps, admin dashboards,
+            backend APIs, and integrations.
+          </p>
+        </div>
+
         <div className="grid items-start gap-10 lg:grid-cols-2">
-          {/* LEFT content */}
-          {/* RIGHT content */}
-<div className="text-left">
-  <p className="text-sm font-semibold text-emerald-700">✦ Projects</p>
+          {/* LEFT COLUMN */}
+          <div>
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-3xl shadow-lg">
+              <img
+                src="/profile.jpg"
+                alt="Dimple Kumari"
+                className="h-[420px] w-full object-cover"
+              />
+            </div>
 
-  <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
-    Featured <span className="text-emerald-600">Work</span>
-  </h2>
+            {/* ✅ BUTTONS — image ke niche, left aligned */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-95"
+              >
+                Get In Touch
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
+                  →
+                </span>
+              </a>
 
-  <p className="mt-3 max-w-xl text-slate-600">
-    A few project highlights that reflect what I build: SaaS apps, admin dashboards,
-    backend APIs, and integrations.
-  </p>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                <FaGithub /> GitHub
+              </a>
 
+              <a
+                href="/projects"
+                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                <FaExternalLinkAlt /> Explore
+              </a>
+            </div>
+          </div>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          {/* RIGHT COLUMN — CARDS ONLY */}
+          <div>
+            <div className="grid gap-5 sm:grid-cols-2">
               {projects.map((p, idx) => (
                 <div
                   key={idx}
@@ -76,47 +116,9 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-95"
-              >
-                Get In Touch{" "}
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="https://github.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
-              >
-                <FaGithub /> GitHub
-              </a>
-
-              <a
-                href="/projects"
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
-              >
-                <FaExternalLinkAlt /> Explore
-              </a>
-            </div>
-          </div>
-
-          {/* RIGHT image */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl shadow-lg">
-              <img
-                src="/profile.jpg"
-                alt="Dimple Kumari"
-                className="h-[420px] w-full object-cover"
-              />
-            </div>
           </div>
         </div>
+
       </div>
     </section>
   );
