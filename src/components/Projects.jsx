@@ -19,8 +19,8 @@ const projects = [
   },
   {
     title: "Client Landing Pages",
-    desc: "Fast, conversion-friendly single-page sites with smooth navigation.",
-    tags: ["SPA", "SEO basics", "Performance"],
+    desc: "Fast, conversion-friendly websites with clean structure and quick load times.",
+    tags: ["UI", "SEO basics", "Performance"],
   },
 ];
 
@@ -28,29 +28,22 @@ export default function Projects() {
   return (
     <section id="projects" className="bg-emerald-50/40">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          {/* LEFT image */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl shadow-lg">
-              {/* apni image yaha lagao */}
-              <img
-                src="/profile.jpg"
-                alt="Dimple Kumari"
-                className="h-[420px] w-full object-cover"
-              />
-            </div>
-          </div>
-
+        {/* ✅ Content LEFT, Image RIGHT */}
+        <div className="grid items-start gap-10 lg:grid-cols-2">
+          {/* LEFT content */}
           {/* RIGHT content */}
-          <div>
-            <p className="text-sm font-semibold text-slate-500 text-emerald-700">✦ Projects</p>
-            <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
-              Featured <span className="text-emerald-600">Work</span>
-            </h2>
-            <p className="mt-3 max-w-xl text-slate-600">
-              A few project highlights that reflect what I build like SaaS apps, dashboards,
-              backend APIs, and integrations.
-            </p>
+<div className="text-left">
+  <p className="text-sm font-semibold text-emerald-700">✦ Projects</p>
+
+  <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
+    Featured <span className="text-emerald-600">Work</span>
+  </h2>
+
+  <p className="mt-3 max-w-xl text-slate-600">
+    A few project highlights that reflect what I build: SaaS apps, admin dashboards,
+    backend APIs, and integrations.
+  </p>
+
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {projects.map((p, idx) => (
@@ -65,6 +58,7 @@ export default function Projects() {
                   <h3 className="text-base font-extrabold text-slate-900">
                     {p.title}
                   </h3>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     {p.desc}
                   </p>
@@ -85,13 +79,15 @@ export default function Projects() {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-95"
               >
-                Get In Touch <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20">→</span>
+                Get In Touch{" "}
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
+                  →
+                </span>
               </a>
 
-              {/* optional buttons */}
               <a
                 href="https://github.com/"
                 target="_blank"
@@ -102,11 +98,22 @@ export default function Projects() {
               </a>
 
               <a
-                href="#"
+                href="/projects"
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
               >
-                <FaExternalLinkAlt /> Explore 
+                <FaExternalLinkAlt /> Explore
               </a>
+            </div>
+          </div>
+
+          {/* RIGHT image */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-3xl shadow-lg">
+              <img
+                src="/profile.jpg"
+                alt="Dimple Kumari"
+                className="h-[420px] w-full object-cover"
+              />
             </div>
           </div>
         </div>
