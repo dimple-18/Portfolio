@@ -25,7 +25,7 @@ export default function Hero() {
 
             <p className="mt-5 text-white/75 max-w-xl">
               I build responsive websites and web apps with clean UI and
-              real-world features — designed to look premium and perform well.
+              real-world features designed to look premium and perform well.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

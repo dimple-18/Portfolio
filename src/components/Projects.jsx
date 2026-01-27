@@ -31,15 +31,25 @@ export default function Projects() {
 
         {/* HEADING */}
         <div className="mb-12">
-          <p className="text-sm font-semibold text-emerald-700">✦ Projects</p>
-          <h2 className="mt-2 text-4xl font-extrabold text-slate-900">
-            Featured <span className="text-emerald-600">Work</span>
-          </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            A few project highlights that reflect what I build: SaaS apps, admin dashboards,
-            backend APIs, and integrations.
-          </p>
-        </div>
+  {/* Top label (same as About & Services) */}
+  <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+      ✦
+    </span>
+    Projects
+  </div>
+
+  {/* Main heading */}
+  <h2 className="mt-3 text-4xl font-extrabold text-slate-900">
+    Featured <span className="text-emerald-600">Work</span>
+  </h2>
+
+  {/* Description */}
+  <p className="mt-3 max-w-2xl text-slate-600">
+    A few project highlights that reflect what I build: SaaS apps, admin dashboards,
+    backend APIs, and integrations.
+  </p>
+</div>
 
         <div className="grid items-start gap-10 lg:grid-cols-2">
           {/* LEFT COLUMN */}
