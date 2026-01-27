@@ -1,3 +1,4 @@
+import me2 from "../assets/me2.jpg";
 export default function About() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
@@ -7,9 +8,9 @@ export default function About() {
           <div className="overflow-hidden rounded-3xl bg-slate-100 shadow-sm ring-1 ring-slate-200">
             {/* Put your image in: /public/about.jpg */}
             <img
-              src="/about.jpg"
+              src={me2}
               alt="About"
-              className="h-[420px] w-full object-cover"
+              className="w-full h-[420px] object-cover object-[50%_35%] rounded-[2rem]"
             />
           </div>
         </div>
@@ -28,9 +29,9 @@ export default function About() {
           </h2>
 
           <p className="mt-4 max-w-xl text-slate-600">
-            I’m a React developer passionate about building modern multi-page and 
-            single-page applications with clean UI, smooth navigation, 
-            and a strong focus on performance, scalability, and code quality.
+            I’m a full-stack developer who builds modern web applications with a strong 
+            emphasis on clean interfaces, scalable backend architecture, and long-term 
+            maintainability. I focus on performance, reliability, and real-world business requirements.
           </p>
 
           <div className="mt-6">
@@ -50,7 +51,7 @@ export default function About() {
             <InfoCard
               icon="🪪"
               title="Role"
-              value="React Developer"
+              value="Full Stack Developer"
               sub="UI • Web Apps • Dashboards"
             />
             <InfoCard

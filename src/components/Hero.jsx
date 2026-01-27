@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import me from "../assets/me.jpg";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -40,7 +40,7 @@ export default function Hero() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
-                Book a Call
+                Contact Me
               </Link>
             </div>
 
@@ -66,9 +66,9 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-[2.5rem] bg-white/10 blur-2xl" />
             <div className="relative rounded-[2.5rem] border border-white/15 bg-white/5 p-4 backdrop-blur-xl">
               <img
-                src="/me.jpg"
+                src={me}
                 alt="Profile"
-                className="w-full h-[420px] object-cover rounded-[2rem]"
+                className="w-full h-[420px] object-cover object-[50%_35%] rounded-[2rem]"
               />
 
               <div className="absolute bottom-6 left-6 rounded-2xl bg-black/35 border border-white/10 px-4 py-3 backdrop-blur">

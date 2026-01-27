@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import ProjectDetails from "./components/ProjectDetails";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -37,6 +38,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route
           path="/about"
           element={
@@ -45,6 +47,7 @@ export default function App() {
             </div>
           }
         />
+
         <Route
           path="/services"
           element={
@@ -53,6 +56,8 @@ export default function App() {
             </div>
           }
         />
+
+        {/* Projects list page */}
         <Route
           path="/projects"
           element={
@@ -61,6 +66,17 @@ export default function App() {
             </div>
           }
         />
+
+        {/* ✅ Project details page (dynamic) */}
+        <Route
+          path="/projects/:slug"
+          element={
+            <div className="bg-white text-slate-900">
+              <ProjectDetails />
+            </div>
+          }
+        />
+
         <Route
           path="/contact"
           element={

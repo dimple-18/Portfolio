@@ -1,69 +1,91 @@
-import React from "react";
+import React, { useEffect, useMemo, useRef } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { FaCheckCircle, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import me4 from "../assets/me4.jpg";
 
 const projects = [
   {
+    slug: "firebolt-leadsoffers",
     title: "Firebolt LeadsOffers (Full-Stack)",
     desc: "Offers + leads system with admin roles, auth, and real project structure.",
     tags: ["React", "Node/Express", "Firebase"],
+    images: ["/projects/firebolt/1.png", "/projects/firebolt/2.png"],
   },
   {
+    slug: "saas-dashboard-ui",
     title: "SaaS Dashboard UI",
     desc: "Modern admin dashboard with tables, filters, charts, and role-based flows.",
     tags: ["React", "Tailwind", "RBAC"],
+    images: ["/projects/saas/1.png"],
   },
   {
+    slug: "api-integrations",
     title: "API Integrations",
     desc: "Payments, email/OTP, and third-party integrations with clean error handling.",
     tags: ["REST", "Webhooks", "Secure"],
+    images: ["/projects/api/1.png"],
   },
   {
+    slug: "client-landing-pages",
     title: "Client Landing Pages",
     desc: "Fast, conversion-friendly websites with clean structure and quick load times.",
     tags: ["UI", "SEO basics", "Performance"],
+    images: ["/projects/landing/1.png"],
   },
 ];
 
 export default function Projects() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const focus = searchParams.get("focus");
+  const cardRefs = useRef({});
+
+  const orderedProjects = useMemo(() => {
+    if (!focus) return projects;
+    const copy = [...projects];
+    copy.sort((a, b) => (a.slug === focus ? -1 : b.slug === focus ? 1 : 0));
+    return copy;
+  }, [focus]);
+
+  useEffect(() => {
+    if (!focus) return;
+    const el = cardRefs.current[focus];
+    if (el) el.scrollIntoView({ behavior: "auto", block: "center" });
+  }, [focus]);
+
   return (
     <section id="projects" className="bg-emerald-50/40">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-
         {/* HEADING */}
         <div className="mb-12">
-  {/* Top label (same as About & Services) */}
-  <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-      ✦
-    </span>
-    Projects
-  </div>
+          <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+              ✦
+            </span>
+            Projects
+          </div>
 
-  {/* Main heading */}
-  <h2 className="mt-3 text-4xl font-extrabold text-slate-900">
-    Featured <span className="text-emerald-600">Work</span>
-  </h2>
+          <h2 className="mt-3 text-4xl font-extrabold text-slate-900">
+            Featured <span className="text-emerald-600">Work</span>
+          </h2>
 
-  {/* Description */}
-  <p className="mt-3 max-w-2xl text-slate-600">
-    A few project highlights that reflect what I build: SaaS apps, admin dashboards,
-    backend APIs, and integrations.
-  </p>
-</div>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            A few project highlights that reflect what I build: SaaS apps, admin dashboards,
+            backend APIs, and integrations.
+          </p>
+        </div>
 
         <div className="grid items-start gap-10 lg:grid-cols-2">
           {/* LEFT COLUMN */}
           <div>
-            {/* IMAGE */}
             <div className="overflow-hidden rounded-3xl shadow-lg">
               <img
-                src="/profile.jpg"
+                src={me4}
                 alt="Dimple Kumari"
-                className="h-[420px] w-full object-cover"
+                className="w-full h-[420px] object-cover object-[80%_15%] rounded-[2rem]"
               />
             </div>
 
-            {/* ✅ BUTTONS — image ke niche, left aligned */}
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="/contact"
@@ -93,42 +115,64 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN — CARDS ONLY */}
+          {/* RIGHT COLUMN */}
           <div>
             <div className="grid gap-5 sm:grid-cols-2">
-              {projects.map((p, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
-                    <FaCheckCircle />
+              {orderedProjects.map((p) => {
+                const isFocused = focus === p.slug;
+
+                return (
+                  <div
+                    key={p.slug}
+                    ref={(el) => (cardRefs.current[p.slug] = el)}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => navigate(`/projects/${p.slug}`)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        navigate(`/projects/${p.slug}`);
+                      }
+                    }}
+                    className={[
+                      "cursor-pointer rounded-3xl border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md",
+                      isFocused
+                        ? "border-emerald-300 ring-2 ring-emerald-200"
+                        : "border-slate-200",
+                    ].join(" ")}
+                  >
+                    <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+                      <FaCheckCircle />
+                    </div>
+
+                    <h3 className="text-base font-extrabold text-slate-900">
+                      {p.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {p.desc}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-5 text-xs font-semibold text-emerald-700">
+                      Click to view →
+                    </div>
                   </div>
-
-                  <h3 className="text-base font-extrabold text-slate-900">
-                    {p.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    {p.desc}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
