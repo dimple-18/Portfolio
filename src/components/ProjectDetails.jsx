@@ -8,6 +8,11 @@ import {
   FaLayerGroup,
   FaBolt,
   FaTimes,
+  FaServer,
+  FaChartBar,
+  FaPlug,
+  FaRocket,
+  FaGlobe,
 } from "react-icons/fa";
 
 export default function ProjectDetails() {
@@ -17,30 +22,31 @@ export default function ProjectDetails() {
 
   const projectsBySlug = useMemo(
     () => ({
+      // ✅ 1) FIREBOLT
       "firebolt-leadsoffers": {
         title: "Firebolt LeadsOffers",
         eyebrow: "Case Study • Full-Stack System",
         subtitle:
-          "A production-style platform for managing offers and leads — with role-based workflows, dashboard UX, and scalable architecture designed for real business usage.",
+          "A production-style platform for managing offers and leads — built with role-based workflows, dashboard UX, and scalable architecture designed for real business usage.",
         tags: ["React", "Node/Express", "Firebase", "RBAC", "Webhooks"],
         role: "Full-Stack Developer",
         status: "Active build • Iterative releases",
-        outcome: "Built for reliability, clear workflows, and maintainable scale.",
+        outcome: "Reliable workflows + clean architecture + maintainable scale.",
         highlights: [
           {
             icon: <FaShieldAlt />,
             title: "Role-based access control",
-            desc: "Clean admin/user flows with guarded routes and permission-aware UI decisions.",
+            desc: "Admin/user flows with guarded routes and permission-aware UI decisions.",
           },
           {
             icon: <FaLayerGroup />,
             title: "Dashboard-first UX",
-            desc: "Reusable components, consistent spacing, and data patterns that feel product-ready.",
+            desc: "Reusable components, consistent spacing, and product-ready data patterns.",
           },
           {
-            icon: <FaCheckCircle />,
+            icon: <FaServer />,
             title: "Structured APIs + validation",
-            desc: "Predictable server responses, validations, and error states that reduce surprises in production.",
+            desc: "Predictable responses, validations, and error states to reduce production surprises.",
           },
           {
             icon: <FaBolt />,
@@ -55,7 +61,124 @@ export default function ProjectDetails() {
         ],
         github: "", // keep empty if private
       },
-      // Add more slugs later
+
+      // ✅ 2) SAAS DASHBOARD UI
+      "saas-dashboard-ui": {
+        title: "SaaS Dashboard UI",
+        eyebrow: "Case Study • Dashboard UI",
+        subtitle:
+          "A modern SaaS dashboard interface built for real admin workflows — clean layout system, reusable UI patterns, and scalable structure.",
+        tags: ["React", "Tailwind", "RBAC", "Tables", "UI System"],
+        role: "Frontend / UI Developer",
+        status: "Completed",
+        outcome: "Clean dashboard foundation with reusable components and strong UX hierarchy.",
+        highlights: [
+          {
+            icon: <FaChartBar />,
+            title: "Dashboard structure",
+            desc: "Layout system designed for admin flows with clear navigation and hierarchy.",
+          },
+          {
+            icon: <FaLayerGroup />,
+            title: "Reusable UI patterns",
+            desc: "Cards, tables, chips and sections built for consistency and speed.",
+          },
+          {
+            icon: <FaShieldAlt />,
+            title: "Role-ready screens",
+            desc: "UI planned to support role-based access and permission-driven navigation.",
+          },
+          {
+            icon: <FaBolt />,
+            title: "Responsive polish",
+            desc: "Spacing, typography, and breakpoints tuned for a premium look on all devices.",
+          },
+        ],
+        images: [
+          "/projects/saas/1.png",
+          "/projects/saas/2.png",
+          "/projects/saas/3.png",
+        ],
+        github: "", // keep empty if private
+      },
+
+      // ✅ 3) API INTEGRATIONS
+      "api-integrations": {
+        title: "API Integrations",
+        eyebrow: "Case Study • Integrations",
+        subtitle:
+          "Reliable third-party integrations (payments, email/OTP, webhooks) with clean error handling, secure patterns, and real-world edge cases.",
+        tags: ["REST APIs", "Webhooks", "Auth", "Error Handling", "Secure"],
+        role: "Backend / Integration Developer",
+        status: "Completed",
+        outcome: "Stable integration flow with predictable outcomes and strong reliability.",
+        highlights: [
+          {
+            icon: <FaPlug />,
+            title: "3rd-party integrations",
+            desc: "Payment gateways, email/OTP services, maps/CRMs — depending on project needs.",
+          },
+          {
+            icon: <FaServer />,
+            title: "Clean API architecture",
+            desc: "Organized request/response structure, validation, and readable modules.",
+          },
+          {
+            icon: <FaShieldAlt />,
+            title: "Security-first approach",
+            desc: "Sensitive configs via env, safe handling of keys, and controlled access flows.",
+          },
+          {
+            icon: <FaBolt />,
+            title: "Reliability + edge cases",
+            desc: "Graceful failure states and predictable behavior in real usage.",
+          },
+        ],
+        images: [
+          "/projects/api/1.png",
+          "/projects/api/2.png",
+        ],
+        github: "", // keep empty if private
+      },
+
+      // ✅ 4) CLIENT LANDING PAGES
+      "client-landing-pages": {
+        title: "Client Landing Pages",
+        eyebrow: "Case Study • Websites",
+        subtitle:
+          "Conversion-friendly websites built with premium UI, strong hierarchy, responsive sections, and performance-focused delivery. (Client-safe showcase.)",
+        tags: ["UI/UX", "Performance", "Responsive", "SEO Basics", "Landing Pages"],
+        role: "Frontend Developer",
+        status: "Multiple projects",
+        outcome: "Premium, responsive pages built to convert and load fast.",
+        highlights: [
+          {
+            icon: <FaGlobe />,
+            title: "Conversion-first layout",
+            desc: "Clear sections, strong CTA placement, and a clean content hierarchy.",
+          },
+          {
+            icon: <FaLayerGroup />,
+            title: "Premium UI system",
+            desc: "Consistent spacing, typography, and reusable blocks for fast iteration.",
+          },
+          {
+            icon: <FaRocket />,
+            title: "Performance focused",
+            desc: "Optimized assets and smooth UX for a fast-loading experience.",
+          },
+          {
+            icon: <FaBolt />,
+            title: "Client-safe showcase",
+            desc: "Some links are private — screenshots used for professional demonstration.",
+          },
+        ],
+        images: [
+          "/projects/landing/1.png",
+          "/projects/landing/2.png",
+        ],
+        github: "", // keep empty if private
+      },
     }),
     []
   );
@@ -99,7 +222,6 @@ export default function ProjectDetails() {
     <div className="bg-[#F6FAF8] text-slate-900">
       {/* Premium hero header */}
       <div className="relative overflow-hidden">
-        {/* Gradient glow background */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-40 -left-40 h-[560px] w-[560px] rounded-full bg-emerald-300/25 blur-3xl" />
           <div className="absolute -top-32 right-[-180px] h-[620px] w-[620px] rounded-full bg-sky-300/18 blur-3xl" />
@@ -140,7 +262,6 @@ export default function ProjectDetails() {
                 ))}
               </div>
 
-              {/* CTA row */}
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
                   href="/contact"
@@ -169,7 +290,7 @@ export default function ProjectDetails() {
               </div>
             </div>
 
-            {/* Right sticky summary card (premium) */}
+            {/* Right sticky summary card */}
             <div className="lg:sticky lg:top-24 h-fit animate-[fadeUp_.75s_ease-out]">
               <div className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur">
                 <p className="text-sm font-semibold text-slate-800">
@@ -194,7 +315,6 @@ export default function ProjectDetails() {
             </div>
           </div>
 
-          {/* tiny local animation keyframes */}
           <style>{`
             @keyframes fadeUp {
               from { opacity: 0; transform: translateY(10px); }
@@ -206,7 +326,6 @@ export default function ProjectDetails() {
 
       {/* Body */}
       <div className="mx-auto max-w-6xl px-6 pb-16">
-        {/* Highlights as premium cards */}
         <div className="mt-2">
           <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
@@ -234,7 +353,7 @@ export default function ProjectDetails() {
           </div>
         </div>
 
-        {/* Screenshots gallery + lightbox */}
+        {/* Screenshots */}
         <div className="mt-14">
           <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">

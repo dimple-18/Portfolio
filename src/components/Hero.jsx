@@ -40,7 +40,7 @@ export default function Hero() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
-                Contact Me
+                Send a message
               </Link>
             </div>
 
